@@ -105,7 +105,6 @@ function InternQuestions() { //intern q's
     });
 };
 
-
 function EngineerQuestions() { // engineer q's
     const Engineer = [{
         type: 'input',
