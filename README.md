@@ -13,7 +13,7 @@ I wanted to create a quick and easy way to generate a nicely formatted webpage t
 ## Installation 
 Once project is downloaded, you run node index.js in the terminal to start the prompts.
 ## Screen-Shots
-
+<img width="1440" alt="Screenshot 2023-02-26 at 3 20 56 PM" src="https://user-images.githubusercontent.com/44388330/221435060-3f7fbe54-151c-4b5c-8923-fdb918d8002d.png">
 ## Walk Through Video Link
 https://drive.google.com/file/d/1tJlTUqNwEwm2XV16JVupbH_WIqLydSuS/view
 ## Contribution Guidelines
