@@ -21,6 +21,6 @@ Please contact me before!
 ## Questions
 Please feel free to reach out to me at: Hannah2edwards3@gmail.com
 ## My GitHub
-Link to GitHub: https://github.com/https://github.com/hannahedwards
+Link to GitHub: https://github.com/hannahedwards
 ## License
 MIT
