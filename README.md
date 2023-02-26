@@ -1,1 +1,26 @@
-# Team-Profile-Generator
+# Your team profile generator!
+## Table of Contents
+- [Description of this project](#Description)
+- [How to install this project](#Installation)
+- [Screen shots of this project](#Usage)
+- [Walk through video link](#Tests)
+- [How to condribute to this project](#Contribution)
+- [Questions](#Email)
+- [My Github](#GitHub)
+- [Project license](#License)
+## Description
+I wanted to create a quick and easy way to generate a nicely formatted webpage to hold information for your team!
+## Installation 
+Once project is downloaded, you run node index.js in the terminal to start the prompts.
+## Screen Shots
+
+## Walk Through Video Link
+
+## Contribution Guidelines
+Please contact me before!
+## Questions
+Please feel free to reach out to me at: Hannah2edwards3@gmail.com
+## My GitHub
+Link to GitHub: https://github.com/https://github.com/hannahedwards
+## License
+MIT
