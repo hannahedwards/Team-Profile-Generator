@@ -4,7 +4,7 @@ const InternHtml = require('./lib/Intern');
 const ManagerHtml = require('./lib/Manager');
 const fs = require('fs');
 
-const questions = [ //start of the function. gathering user input for employees. manager q's
+const ManagerQuestions = [ //start of the function. gathering user input for employees. manager q's
     {
         type: 'input',
         name: 'Manager',
@@ -29,13 +29,13 @@ const questions = [ //start of the function. gathering user input for employees.
         type: 'list',
         name: 'member',
         message: 'What team member would you like to add next?',
-        choices: ['Intern', 'Engineer']
+        choices: ['Intern', 'Engineer', 'Save']
     },
 ]
 function init() { //function prompted by the last input answer. will either pull up questions for intern or engineer
-    inquirer.prompt(questions).then((answers) => {
-        let userChoice = answers.member;
-        function switchQuestions() {
+    inquirer.prompt(ManagerQuestions).then((questionAnswers) => {
+        let userChoice = questionAnswers.member;
+        function SwitchQuestions() {
             if (userChoice === 'Intern') {
                 console.log("Intern")
                 InternQuestions();
@@ -48,8 +48,8 @@ function init() { //function prompted by the last input answer. will either pull
             }
 
         }
-        switchQuestions();
-        const ManagerInput = ManagerHtml(answers);
+        SwitchQuestions();
+        const ManagerInput = ManagerHtml(questionAnswers);
         fs.writeFile('./dist/index.html', (ManagerInput), (err) =>  //adding to html file
             console.log('Success') //letting you know it worked
         );
@@ -57,8 +57,7 @@ function init() { //function prompted by the last input answer. will either pull
 };
 
 function InternQuestions() { //intern q's
-    const Intern = [
-        {
+    const Intern = [{
             type: 'input',
             name: 'InternName',
             message: 'Enter the interns name.',
@@ -78,14 +77,21 @@ function InternQuestions() { //intern q's
             name: 'InternEmail',
             message: 'Whats the interns email?',
         },
+        {
+            type: 'list',
+            name: 'member',
+            message: 'What team member would you like to add next?',
+            choices: ['Intern', 'Engineer', 'Save']
+        },
     ]
-    inquirer.prompt(Intern).then((answers) => {
-        const InternInput = InternHtml(answers);
+    inquirer.prompt(Intern).then((questionAnswers) => {
+        const InternInput = InternHtml(questionAnswers);
         fs.appendFile('./dist/index.html', (InternInput), (err) =>  //adding to html
             console.log('Success') //letting you know it worked
         );
     });
 };
+
 
 function EngineerQuestions() { // engineer q's
     const Engineer = [{
@@ -108,9 +114,15 @@ function EngineerQuestions() { // engineer q's
         name: 'githubUrl',
         message: 'Enter the engineers github URL.',
     },
+    {
+        type: 'list',
+        name: 'member',
+        message: 'What team member would you like to add next?',
+        choices: ['Intern', 'Engineer', 'Save']
+    },
     ]
-    inquirer.prompt(Engineer).then((answers) => {
-        const EngineerInput = EngineerHtml(answers);
+    inquirer.prompt(Engineer).then((questionAnswers) => {
+        const EngineerInput = EngineerHtml(questionAnswers);
         fs.appendFile('./dist/index.html', (EngineerInput), (err) => //addeding to html file
             console.log('Success')//letting you know it worked
         );
