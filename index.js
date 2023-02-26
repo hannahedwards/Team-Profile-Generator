@@ -46,7 +46,6 @@ function init() { //function prompted by the last input answer. will either pull
                 EngineerQuestions();
                 return;
             }
-
         }
         SwitchQuestions();
         const ManagerInput = ManagerHtml(questionAnswers);
@@ -58,33 +57,47 @@ function init() { //function prompted by the last input answer. will either pull
 
 function InternQuestions() { //intern q's
     const Intern = [{
-            type: 'input',
-            name: 'InternName',
-            message: 'Enter the interns name.',
-        },
-        {
-            type: 'number',
-            name: 'InternId',
-            message: 'Whats the interns employee ID?',
-        },
-        {
-            type: 'input',
-            name: 'school',
-            message: 'What school is the intern attending?',
-        },
-        {
-            type: 'input',
-            name: 'InternEmail',
-            message: 'Whats the interns email?',
-        },
-        {
-            type: 'list',
-            name: 'member',
-            message: 'What team member would you like to add next?',
-            choices: ['Intern', 'Engineer', 'Save']
-        },
+        type: 'input',
+        name: 'InternName',
+        message: 'Enter the interns name.',
+    },
+    {
+        type: 'number',
+        name: 'InternId',
+        message: 'Whats the interns employee ID?',
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: 'What school is the intern attending?',
+    },
+    {
+        type: 'input',
+        name: 'InternEmail',
+        message: 'Whats the interns email?',
+    },
+    {
+        type: 'list',
+        name: 'member',
+        message: 'What team member would you like to add next?',
+        choices: ['Intern', 'Engineer', 'Save']
+    },
     ]
     inquirer.prompt(Intern).then((questionAnswers) => {
+        let userChoice = questionAnswers.member;
+        function SwitchQuestions() {
+            if (userChoice === 'Intern') {
+                console.log("Intern")
+                InternQuestions();
+                return;
+
+            } else if (userChoice === 'Engineer') {
+                console.log("Engineer")
+                EngineerQuestions();
+                return;
+            }
+        }
+        SwitchQuestions();
         const InternInput = InternHtml(questionAnswers);
         fs.appendFile('./dist/index.html', (InternInput), (err) =>  //adding to html
             console.log('Success') //letting you know it worked
@@ -122,6 +135,21 @@ function EngineerQuestions() { // engineer q's
     },
     ]
     inquirer.prompt(Engineer).then((questionAnswers) => {
+        let userChoice = questionAnswers.member;
+        function SwitchQuestions() {
+            if (userChoice === 'Intern') {
+                console.log("Intern")
+                InternQuestions();
+                return;
+
+            } else if (userChoice === 'Engineer') {
+                console.log("Engineer")
+                EngineerQuestions();
+                return;
+            }
+
+        }
+        SwitchQuestions();
         const EngineerInput = EngineerHtml(questionAnswers);
         fs.appendFile('./dist/index.html', (EngineerInput), (err) => //addeding to html file
             console.log('Success')//letting you know it worked
